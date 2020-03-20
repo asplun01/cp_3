@@ -1,32 +1,53 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+<div id="app">
+  <div id="menu">
+  <div class="page">
+      <router-link to="/">
+        <p>View All</p>
+      </router-link>
+      <router-link to="/browse">
+          <p>Find By Type</p>
+      </router-link>
+      <router-link to="/team">
+          <p>View Team</p>
+          <img src='/images/zero.png' v-if="this.$root.$data.team.length === 0">
+          <img src='/images/one.png' v-if="this.$root.$data.team.length === 1">
+          <img src='/images/two.png' v-if="this.$root.$data.team.length === 2">
+          <img src='/images/three.png' v-if="this.$root.$data.team.length === 3">
+          <img src='/images/four.png' v-if="this.$root.$data.team.length === 4">
+          <img src='/images/five.png' v-if="this.$root.$data.team.length === 5">
+          <img src='/images/six.png' v-if="this.$root.$data.team.length === 6">
+      </router-link>
   </div>
+  </div>
+  <router-view />
+</div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  box-sizing: border-box;
 }
 
-#nav {
-  padding: 30px;
+body {
+  margin: 50px 100px;
+  background-color: #2C527A;
+
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.page {
+  width: 75%;
+  margin: 0 auto;
+}
+.page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+#menu a {
+  color: #F4C4C1;
+  text-decoration: none;
 }
+
 </style>
